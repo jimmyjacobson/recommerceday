@@ -46,6 +46,18 @@ else {
 	}
 }
 
-$response['allTopics'] = $allTopics;
+$hash = array();
+foreach($allTopics as $topic) {
+	if (array_key_exists($topic,$hash)) {
+		$hash[$topic]++;		
+	}
+	else {
+		$hash[$topic] = 1;
+	}
+}
+
+arsort($hash);
+
+$response['allTopics'] = array_keys($hash);
 print_r(json_encode($response));
 ?>

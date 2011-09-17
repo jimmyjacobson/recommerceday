@@ -16,6 +16,7 @@ if (count($listing->results) > 0) {
 	$response = array(
 		"title" => $listing->results[0]->title,
 		"url" => $listing->results[0]->url,
+		"price" => $listing->results[0]->price,
 		"images" => $image->results[0]
 		);
 print_r(json_encode($response));
